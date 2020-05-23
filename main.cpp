@@ -88,10 +88,10 @@ void cashWithdraw(Account* bank, int size, Clock& c) {
 
 int main() {
     Clock clock(8);
-    Account bank[3];
+    Account bank[10];
 
     cout << "enter account number and code for 10 accounts:\n";
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 10; i++) {
         try {
             cin >> bank[i];
             for (int j = 0; j < i; j++)
@@ -99,7 +99,7 @@ int main() {
                     throw "ERROR: account number must be unique!\n";
               
                
-            if (i < 2)
+            if (i < 9)
             cout << "enter account number and code:" << endl;
         }
         catch (const char* msg) {
@@ -114,14 +114,14 @@ int main() {
             try {
                 switch (ac) {
                 case BALANCE:
-                    getBalance(bank, 3, ++clock);
+                    getBalance(bank, 10, ++clock);
                     break;
                 case WITHDRAW:
-                    cashWithdraw(bank, 3, ++clock);
+                    cashWithdraw(bank, 10, ++clock);
                     break;
                 case DEPOSIT:
                     clock++;
-                    cashDeposit(bank, 3, clock);
+                    cashDeposit(bank, 10, clock);
                     break;
                 case SUM_DEPOSIT:
                     clock += 60;
